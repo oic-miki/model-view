@@ -24,10 +24,12 @@ namespace ModelView
 
         }
 
-        public override void addArena()
+        public override Character addArena()
         {
 
             view.Show();
+
+            return this;
 
         }
 

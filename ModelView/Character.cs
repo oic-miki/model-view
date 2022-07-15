@@ -77,7 +77,7 @@ namespace ModelView
 
         }
 
-        public abstract void addArena();
+        public abstract Character addArena();
 
         /**
          * ※サブクラスは必ず base.update() を発効すること！
