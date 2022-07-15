@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelView
 {
-    interface UpdateListener
+    public interface UpdateListener
     {
 
         void update();

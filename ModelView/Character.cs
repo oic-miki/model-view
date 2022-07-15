@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ModelView
 {
-    public abstract class Character : UpdateListener
+    public abstract class Character : UpdateListener, BattleBehavior
     {
 
         private String name;
@@ -15,7 +15,7 @@ namespace ModelView
         private int strength;
         private int agility;
         private Character enemy;
-        private Behavior behavior = new Behavior();
+        private Behavior behavior;
 
         public Character(
             String name,
@@ -30,6 +30,8 @@ namespace ModelView
             this.hitPoint = hitPoint;
             this.strength = strength;
             this.agility = agility;
+
+            behavior = new Behavior(this);
 
         }
 
@@ -123,6 +125,24 @@ namespace ModelView
                 hitPoint -= enemy.getStrength() + enemy.getAgility() * 2;
 
             }
+
+        }
+
+        public virtual BattleBehavior changeAttack()
+        {
+
+            behavior.changeAttack();
+
+            return this;
+
+        }
+
+        public virtual BattleBehavior changeDefense()
+        {
+
+            behavior.changeDefense();
+
+            return this;
 
         }
 

@@ -7,17 +7,27 @@ using System.Threading.Tasks;
 namespace ModelView
 {
 
-    public class Behavior
+    public class Behavior : BattleBehavior
     {
 
+        private Character character;
         private bool attack = false;
 
-        public Behavior()
+        public Behavior(Character character)
         {
+
+            this.character = character;
 
         }
 
-        public Behavior changeAttack()
+        public String getName()
+        {
+
+            return character.getName();
+
+        }
+
+        public BattleBehavior changeAttack()
         {
 
             attack = true;
@@ -26,7 +36,7 @@ namespace ModelView
 
         }
 
-        public Behavior changeDefense()
+        public BattleBehavior changeDefense()
         {
 
             attack = false;

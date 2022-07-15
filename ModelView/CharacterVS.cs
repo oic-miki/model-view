@@ -9,9 +9,12 @@ namespace ModelView
     public class CharacterVS : Character
     {
 
+        private Arena arena;
         private CharacterView view;
+        private BehaviorController controller;
 
         public CharacterVS(
+            Arena arena,
             String name,
             String role,
             int hitPoint,
@@ -20,7 +23,14 @@ namespace ModelView
             CharacterView view) : base(name, role, hitPoint, strength, agility)
         {
 
+            this.arena = arena;
             this.view  = view;
+
+            controller = new BehaviorController(this);
+
+            arena.addUpdateListener(this);
+
+            controller.Show();
 
         }
 
@@ -28,6 +38,28 @@ namespace ModelView
         {
 
             view.Show();
+
+            return this;
+
+        }
+
+        public override BattleBehavior changeAttack()
+        {
+
+            base.changeAttack();
+
+            arena.notify();
+
+            return this;
+
+        }
+
+        public override BattleBehavior changeDefense()
+        {
+
+            base.changeDefense();
+
+            arena.notify();
 
             return this;
 
