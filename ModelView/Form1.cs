@@ -10,11 +10,15 @@ using System.Windows.Forms;
 
 namespace ModelView
 {
-    public partial class Form1 : Form
+    public partial class Arena : Form
     {
-        public Form1()
+        public Arena()
         {
+
             InitializeComponent();
+
         }
+
     }
+
 }
